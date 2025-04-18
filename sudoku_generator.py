@@ -1,4 +1,5 @@
 import math,random
+from sudoku_constants import *
 
 """
 This was adapted from a GeeksforGeeks article "Program for Sudoku Generator" by Aarti_Rathi and Ankur Trisal
@@ -23,7 +24,12 @@ class SudokuGenerator:
 	None
     '''
     def __init__(self, row_length, removed_cells):
-        pass
+        self.row_length = row_length
+        self.removed_cells = removed_cells
+        self.board = self.get_board()
+        self.box_length = math.sqrt(row_length)
+
+
 
     '''
 	Returns a 2D python list of numbers which represents the board
@@ -32,7 +38,10 @@ class SudokuGenerator:
 	Return: list[list]
     '''
     def get_board(self):
+        # return [["-" for i in range(9) for j in range (9)]]
         pass
+
+
 
     '''
 	Displays the board to the console
