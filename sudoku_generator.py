@@ -41,8 +41,9 @@ class SudokuGenerator:
 	Return: list[list]
     '''
     def get_board(self):
-        # return [["-" for i in range(9) for j in range (9)]]
         pass
+       # return [["-" for i in range(9) for j in range (9)]]
+
 
 
 
@@ -54,7 +55,10 @@ class SudokuGenerator:
 	Return: None
     '''
     def print_board(self):
-        pass
+        for row in self.board:
+            for col in row:
+                print(col, end=" ")
+            print()
 
     '''
 	Determines if num is contained in the specified row (horizontal) of the board
@@ -66,6 +70,7 @@ class SudokuGenerator:
 	
 	Return: boolean
     '''
+
     def valid_in_row(self, row, num):
         pass
 
@@ -77,8 +82,21 @@ class SudokuGenerator:
           col is the index of the column we are checking
           num is the value we are looking for in the column
 
+
           Return: boolean
           '''
+
+    ''' 
+    Determines if num is contained in the specified column (vertical) of the board
+    If num is already in the specified col, return False. Otherwise, return True
+    
+    Parameters:
+    col is the index of the column we are checking
+    num is the value we are looking for in the column
+    
+    Return: boolean
+    '''
+
 
     def valid_in_col(self, col, num):
         pass
