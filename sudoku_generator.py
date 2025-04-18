@@ -7,7 +7,6 @@ This was adapted from a GeeksforGeeks article "Program for Sudoku Generator" by 
 https://www.geeksforgeeks.org/program-sudoku-generator/
 
 """
-
 class SudokuGenerator:
 
     '''
@@ -136,7 +135,10 @@ class SudokuGenerator:
 	Return: boolean
     '''
     def is_valid(self, row, col, num):
-        pass
+        if self.valid_in_row() is False and self.valid_in_col() is False and self.valid_in_box() is False:
+            return False
+        else:
+            return True
 
     '''
     Fills the specified 3x3 box with values
