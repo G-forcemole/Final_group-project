@@ -17,7 +17,6 @@ class SudokuGenerator:
 	self.removed_cells	- the total number of cells to be removed
 	self.board			- a 2D list of ints to represent the board
 	self.box_length		- the square root of row_length
-
 	Parameters:
     row_length is the number of rows/columns of the board (always 9 for this project)
     removed_cells is an integer value - the number of cells to be removed
@@ -25,12 +24,13 @@ class SudokuGenerator:
 	Return:
 	None
     '''
-    def __init__(self, row_length, removed_cells):
+
+
+    def __init__(self, row_length, removed_cells, board ): #completed
         self.row_length = row_length
         self.removed_cells = removed_cells
-        self.board = self.get_board()
+        self.board = board
         self.box_length = math.sqrt(row_length)
-
 
 
     '''
@@ -39,9 +39,8 @@ class SudokuGenerator:
 	Parameters: None
 	Return: list[list]
     '''
-    def get_board(self):
-        pass
-       # return [["-" for i in range(9) for j in range (9)]]
+    def get_board(self): #Complete
+         return self.board
 
 
 
@@ -49,11 +48,10 @@ class SudokuGenerator:
     '''
 	Displays the board to the console
     This is not strictly required, but it may be useful for debugging purposes
-
 	Parameters: None
 	Return: None
     '''
-    def print_board(self):
+    def print_board(self): #Complete
         for row in self.board:
             for col in row:
                 print(col, end=" ")
@@ -70,23 +68,23 @@ class SudokuGenerator:
 	Return: boolean
     '''
 
-    def valid_in_row(self, row, num):
+    def valid_in_row(self, row, num): #Complete
         for item in self.board[row]:
             if item == num:
                 return False
         return True
 
-        '''
-          Determines if num is contained in the specified column (vertical) of the board
-          If num is already in the specified col, return False. Otherwise, return True
-          Parameters:
+    '''
+      Determines if num is contained in the specified column (vertical) of the board
+      If num is already in the specified col, return False. Otherwise, return True
+      Parameters:
 
-          col is the index of the column we are checking
-          num is the value we are looking for in the column
+      col is the index of the column we are checking
+      num is the value we are looking for in the column
 
 
-          Return: boolean
-          '''
+      Return: boolean
+      '''
 
     ''' 
     Determines if num is contained in the specified column (vertical) of the board
@@ -100,7 +98,7 @@ class SudokuGenerator:
     '''
 
 
-    def valid_in_col(self, col, num):
+    def valid_in_col(self, col, num): #Complete
         for item in self.board:
             if item[col] == num:
                 return False
@@ -119,8 +117,13 @@ class SudokuGenerator:
 
 	Return: boolean
     '''
-    def valid_in_box(self, row_start, col_start, num):
-        pass
+    def valid_in_box(self, row_start, col_start, num): #Complete
+        for i in range(3):
+            for j in range(3):
+                if self.board[row_start+(1*i)][col_start+(1*j)] == num:
+                    return False
+        return True
+
     
     '''
     Determines if it is valid to enter num at (row, col) in the board
