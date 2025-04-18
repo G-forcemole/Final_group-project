@@ -77,7 +77,17 @@ class SudokuGenerator:
                 return False
         return True
 
+        '''
+          Determines if num is contained in the specified column (vertical) of the board
+          If num is already in the specified col, return False. Otherwise, return True
+          Parameters:
 
+          col is the index of the column we are checking
+          num is the value we are looking for in the column
+
+
+          Return: boolean
+          '''
 
     ''' 
     Determines if num is contained in the specified column (vertical) of the board
@@ -89,6 +99,7 @@ class SudokuGenerator:
     
     Return: boolean
     '''
+
 
     def valid_in_col(self, col, num):
         for item in self.board:
