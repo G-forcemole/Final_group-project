@@ -1,12 +1,8 @@
 import math,random
-
-"""
-This was adapted from a GeeksforGeeks article "Program for Sudoku Generator" by Aarti_Rathi and Ankur Trisal
-https://www.geeksforgeeks.org/program-sudoku-generator/
-
-"""
+import pygame, sys
 
 class SudokuGenerator:
+
     '''
 	create a sudoku board - initialize class variables and set up the 2D board
 	This should initialize:
@@ -23,7 +19,7 @@ class SudokuGenerator:
 	None
     '''
     def __init__(self, row_length, removed_cells):
-        pass
+        self.row_length = row_length
 
     '''
 	Returns a 2D python list of numbers which represents the board
@@ -55,7 +51,8 @@ class SudokuGenerator:
 	Return: boolean
     '''
     def valid_in_row(self, row, num):
-        pass
+
+
 
     '''
 	Determines if num is contained in the specified column (vertical) of the board
