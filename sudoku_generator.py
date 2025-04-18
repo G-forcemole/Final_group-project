@@ -132,8 +132,10 @@ class SudokuGenerator:
 
 	Return: boolean
     '''
-    def is_valid(self, row, col, num):
-        if self.valid_in_row() is False and self.valid_in_col() is False and self.valid_in_box() is False:
+    def is_valid(self, row, col, num): #complete
+        bsr = row - row % 3
+        bsc = col - col % 3
+        if self.valid_in_row(row, num) is False and self.valid_in_col(col, num) is False and self.valid_in_box(bsr, bsc, num) is False:
             return False
         else:
             return True
