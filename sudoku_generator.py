@@ -170,6 +170,7 @@ class SudokuGenerator:
 	Parameters: None
 	Return: None
     '''
+
     def fill_diagonal(self): #Complete
         self.fill_box(0, 0)
         self.fill_box(3, 3)
