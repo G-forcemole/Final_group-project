@@ -4,7 +4,7 @@ import random
 import asyncio
 import platform
 from pygame.locals import *
-from SudokuGenerator import *
+from SudokuGenerator_RBT import *
 
 #Initialize Pygame
 pygame.init()
