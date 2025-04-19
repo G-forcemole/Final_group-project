@@ -28,8 +28,10 @@ class SudokuGenerator:
     def __init__(self, row_length, removed_cells): #completed
         self.row_length = row_length
         self.removed_cells = removed_cells
-        self.board = self.get_board()
-
+        self.board = [
+            ["-" for _ in range(self.row_length)]
+            for _ in range(self.row_length)
+        ]
         self.box_length = int(math.sqrt(row_length))
 
 
@@ -40,7 +42,7 @@ class SudokuGenerator:
 	Return: list[list]
     '''
     def get_board(self): #Complete
-        return [["-" for i in range(9)] for j in range(9)]
+        return self.board
 
 
 
@@ -124,7 +126,7 @@ class SudokuGenerator:
                     return False
         return True
 
-    
+
     '''
     Determines if it is valid to enter num at (row, col) in the board
     This is done by checking that num is unused in the appropriate, row, column, and box
@@ -138,10 +140,10 @@ class SudokuGenerator:
     def is_valid(self, row, col, num): #complete
         bsr = row - row % 3
         bsc = col - col % 3
-        if self.valid_in_row(row, num) is False and self.valid_in_col(col, num) is False and self.valid_in_box(bsr, bsc, num) is False:
+        if self.valid_in_row(row, num) is False or self.valid_in_col(col, num) is False or self.valid_in_box(bsr, bsc, num) is False:
             return False
-        else:
-            return True
+
+        return True
 
     '''
     Fills the specified 3x3 box with values
@@ -163,7 +165,7 @@ class SudokuGenerator:
                         self.board[row_start + i][col_start + j] = num
                         break
 
-    
+
     '''
     Fills the three boxes along the main diagonal of the board
     These are the boxes which start at (0,0), (3,3), and (6,6)
@@ -207,7 +209,7 @@ class SudokuGenerator:
                 col = 0
                 if row >= self.row_length:
                     return True
-        
+
         for num in range(1, self.row_length + 1):
             if self.is_valid(row, col, num):
                 self.board[row][col] = num
