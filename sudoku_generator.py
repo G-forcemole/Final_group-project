@@ -240,7 +240,13 @@ class SudokuGenerator:
 	Return: None
     '''
     def remove_cells(self):
-        pass
+        count = 0
+        while count < self.removed_cells :
+            x_coord = random.randint(0,9)
+            y_coord = random.randint(0,9)
+            if self.board[x_coord][y_coord] != 0:
+                self.board[x_coord][y_coord] = 0
+                count += 1
 
 '''
 DO NOT CHANGE
